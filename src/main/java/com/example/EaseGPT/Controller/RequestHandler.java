@@ -1,5 +1,7 @@
 package com.example.EaseGPT.Controller;
 
+import com.example.EaseGPT.model.request.ReceivedMessage;
+import com.google.gson.Gson;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +26,11 @@ public class RequestHandler {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HttpStatus> recMessage(@RequestBody Map<String, Object> payload) throws Exception{
-        System.out.println(payload);
+    public ResponseEntity<HttpStatus> recMessage(@RequestBody String payload) throws Exception{
+        ReceivedMessage message = new Gson().fromJson(payload , ReceivedMessage.class);
 
         return new ResponseEntity<>(HttpStatus.OK);
+        
     }
 
 }
