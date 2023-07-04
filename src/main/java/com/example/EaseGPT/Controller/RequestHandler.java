@@ -30,7 +30,7 @@ public class RequestHandler {
         ReceivedMessage message = new Gson().fromJson(payload , ReceivedMessage.class);
 
         return new ResponseEntity<>(HttpStatus.OK);
-        
+
     }
 
 }
