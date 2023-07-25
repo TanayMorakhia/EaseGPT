@@ -100,4 +100,7 @@ public class ReceivedMessage {
         return entry.get(0).changes.get(0).value.messages.get(0).text.body;
     }
 
+    public String getrecepeient(){
+        return entry.get(0).changes.get(0).value.contacts.get(0).getWa_id();
+    }
 }
